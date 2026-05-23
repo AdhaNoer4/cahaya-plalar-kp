@@ -18,20 +18,7 @@ class PageController extends Controller
 
     public function katalog()
     {
-        $categories = Category::all();
-        $query = Product::with('category');
-
-        if (request('search')) {
-            $query->where('nama_produk', 'like', '%' . request('search') . '%');
-        }
-
-        if (request('category')) {
-            $query->where('kategori_id', request('category'));
-        }
-
-        $products = $query->latest()->paginate(12);
-
-        return view('katalog', compact('products', 'categories'));
+        return view('katalog');
     }
 
     public function tentang()
