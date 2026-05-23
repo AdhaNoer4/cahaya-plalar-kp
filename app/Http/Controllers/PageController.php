@@ -25,4 +25,9 @@ class PageController extends Controller
     {
         return view('tentang');
     }
+
+    public function kontak()
+    {
+        return view('kontak');
+    }
 }

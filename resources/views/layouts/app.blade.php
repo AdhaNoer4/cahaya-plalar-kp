@@ -31,7 +31,7 @@
                     <a href="{{ route('home') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('home') ? 'text-primary bg-primary/5' : '' }}">Beranda</a>
                     <a href="{{ route('katalog') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('katalog') ? 'text-primary bg-primary/5' : '' }}">Katalog</a>
                     <a href="{{ route('tentang') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('tentang') ? 'text-primary bg-primary/5' : '' }}">Tentang</a>
-                    <a href="#kontak" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">Kontak</a>
+                    <a href="{{ route('kontak') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('kontak') ? 'text-primary bg-primary/5' : '' }}">Kontak</a>
                 </div>
 
                 {{-- Search & Actions --}}
@@ -74,7 +74,7 @@
                     <a href="{{ route('home') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('home') ? 'text-primary bg-primary/5' : '' }}">Beranda</a>
                     <a href="{{ route('katalog') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('katalog') ? 'text-primary bg-primary/5' : '' }}">Katalog</a>
                     <a href="{{ route('tentang') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('tentang') ? 'text-primary bg-primary/5' : '' }}">Tentang</a>
-                    <a href="#kontak" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200">Kontak</a>
+                    <a href="{{ route('kontak') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('kontak') ? 'text-primary bg-primary/5' : '' }}">Kontak</a>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
                         <li><a href="{{ route('home') }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i>Beranda</a></li>
                         <li><a href="{{ route('katalog') }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i>Katalog Produk</a></li>
                         <li><a href="{{ route('tentang') }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i>Tentang Kami</a></li>
-                        <li><a href="#kontak" class="text-sm text-gray-400 hover:text-primary transition-all duration-200 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i>Hubungi Kami</a></li>
+                        <li><a href="{{ route('kontak') }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i>Hubungi Kami</a></li>
                     </ul>
                 </div>
 

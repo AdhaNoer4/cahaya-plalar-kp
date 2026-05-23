@@ -51,7 +51,8 @@ class ProductResource extends Resource
                 FileUpload::make('gambar')
                     ->label('Gambar Produk')
                     ->image()
-                    ->directory('products'),
+                    ->directory('products')
+                    ->disk('public'),
                 Textarea::make('deskripsi')
                     ->label('Deskripsi'),
             ]);

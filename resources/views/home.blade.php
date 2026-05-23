@@ -7,7 +7,7 @@
 <section class="relative overflow-hidden min-h-[600px] flex items-center">
     {{-- Background Image --}}
     <div class="absolute inset-0">
-        <img src="{{ asset('img/IMG_20260117_124646.jpg') }}" alt="Cahaya Plalar" class="w-full h-full object-cover">
+        <img src="{{ asset('img/IMG_20260117_124646.webp') }}" alt="Cahaya Plalar" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
     </div>
 
@@ -65,7 +65,7 @@
             </div>
             <div class="relative" data-aos="fade-left">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                    <img src="{{ asset('img/IMG_20260117_124702.jpg') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
+                    <img src="{{ asset('img/IMG_20260117_124702.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/10 rounded-2xl -z-10"></div>
                 <div class="absolute -top-4 -left-4 w-20 h-20 bg-primary/10 rounded-full -z-10"></div>

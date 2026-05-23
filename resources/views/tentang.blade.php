@@ -6,7 +6,7 @@
 {{-- Page Header --}}
 <section class="relative overflow-hidden min-h-[400px] flex items-center">
     <div class="absolute inset-0">
-        <img src="{{ asset('img/IMG_20260117_124756.jpg') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
+        <img src="{{ asset('img/IMG_20260117_124756.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
@@ -40,7 +40,7 @@
             </div>
             <div class="relative" data-aos="fade-left">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                    <img src="{{ asset('img/IMG_20260117_124640.jpg') }}" alt="Suasana Toko Cahaya Plalar" class="w-full h-full object-cover">
+                    <img src="{{ asset('img/IMG_20260117_124640.webp') }}" alt="Suasana Toko Cahaya Plalar" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary/10 rounded-2xl -z-10"></div>
                 <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full -z-10"></div>
@@ -59,16 +59,16 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up">
-                <img src="{{ asset('img/IMG_20260117_124646.jpg') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
+                <img src="{{ asset('img/IMG_20260117_124646.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                <img src="{{ asset('img/IMG_20260117_124702.jpg') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
+                <img src="{{ asset('img/IMG_20260117_124702.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                <img src="{{ asset('img/IMG_20260117_124756.jpg') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
+                <img src="{{ asset('img/IMG_20260117_124756.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{ asset('img/IMG_20260117_124640.jpg') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
+                <img src="{{ asset('img/IMG_20260117_124640.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
             </div>
         </div>
     </div>
