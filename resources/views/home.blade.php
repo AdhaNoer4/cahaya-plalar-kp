@@ -4,12 +4,18 @@
 
 @section('content')
 {{-- Hero Section --}}
-<section class="relative overflow-hidden min-h-[600px] flex items-center">
+<section id="three-bg-container" class="relative overflow-hidden min-h-[600px] flex items-center">
     {{-- Background Image --}}
     <div class="absolute inset-0">
         <img src="{{ asset('img/IMG_20260117_124646.webp') }}" alt="Cahaya Plalar" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
     </div>
+    {{-- Floating decorative elements --}}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl animate-float"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-secondary/5 blur-3xl animate-float" style="animation-delay: -2s"></div>
+    </div>
+    {{-- Three.js particles canvas injected here --}}
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div class="max-w-3xl">
@@ -17,10 +23,10 @@
                 <i class="fas fa-store text-xs"></i>
                 Toko Kebutuhan Sehari-hari
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
-                Selamat Datang di <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-400">Cahaya Plalar</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="100" data-parallax-speed="0.06">
+                Selamat Datang di <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-300 animate-gradient">Cahaya Plalar</span>
             </h1>
-            <p class="text-lg sm:text-xl text-white/80 max-w-xl mb-8" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-lg sm:text-xl text-white/80 max-w-xl mb-8" data-aos="fade-up" data-aos-delay="200" data-parallax-speed="0.04">
                 Toko Kebutuhan Sehari-hari Terpercaya di Plalar. Menyediakan berbagai produk berkualitas untuk kebutuhan rumah tangga Anda.
             </p>
             <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
@@ -34,6 +40,7 @@
                 </a>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -50,20 +57,20 @@
                 </div>
                 <div class="grid grid-cols-3 gap-6 mt-8">
                     <div class="text-center p-4 rounded-xl bg-primary/5">
-                        <div class="text-3xl font-bold text-primary">500+</div>
+                        <div class="text-3xl font-bold text-primary" x-data><span x-countup="{ start: 0, end: 500, duration: 2000 }">0</span>+</div>
                         <div class="text-sm text-gray-500 mt-1">Produk</div>
                     </div>
                     <div class="text-center p-4 rounded-xl bg-secondary/5">
-                        <div class="text-3xl font-bold text-secondary">1000+</div>
+                        <div class="text-3xl font-bold text-secondary" x-data><span x-countup="{ start: 0, end: 1000, duration: 2500 }">0</span>+</div>
                         <div class="text-sm text-gray-500 mt-1">Pelanggan</div>
                     </div>
                     <div class="text-center p-4 rounded-xl bg-accent/5">
-                        <div class="text-3xl font-bold text-accent">5+</div>
+                        <div class="text-3xl font-bold text-accent" x-data><span x-countup="{ start: 0, end: 5, duration: 1500 }">0</span>+</div>
                         <div class="text-sm text-gray-500 mt-1">Tahun</div>
                     </div>
                 </div>
             </div>
-            <div class="relative" data-aos="fade-left">
+            <div class="relative" data-aos="fade-left" data-parallax-speed="0.15">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                     <img src="{{ asset('img/IMG_20260117_124702.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
                 </div>

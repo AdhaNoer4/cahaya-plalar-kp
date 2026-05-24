@@ -22,7 +22,7 @@
 
                 {{-- Logo --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
-                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-lg shadow-md">C</div>
+                    {{-- <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-lg shadow-md">Cp</div> --}}
                     <span class="text-xl font-bold text-gray-800 hidden sm:block">Cahaya <span class="text-primary">Plalar</span></span>
                 </a>
 

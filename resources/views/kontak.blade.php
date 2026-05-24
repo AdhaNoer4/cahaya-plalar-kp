@@ -53,11 +53,11 @@
                             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200 resize-none"
                             placeholder="Tulis pesan Anda..."></textarea>
                     </div>
-                    <button type="submit"
-                        class="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-accent hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-accent/25 hover:shadow-accent/40">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                        Kirim via WhatsApp
-                    </button>
+                     <button type="submit"
+                            class="w-full py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-xl flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane text-sm"></i>
+                            Kirim Pesan
+                        </button>
                 </form>
             </div>
 

@@ -4,24 +4,31 @@
 
 @section('content')
 {{-- Page Header --}}
-<section class="relative overflow-hidden min-h-[400px] flex items-center">
+<section id="three-bg-container" class="relative overflow-hidden min-h-[400px] flex items-center">
     <div class="absolute inset-0">
         <img src="{{ asset('img/IMG_20260117_124756.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
     </div>
+    {{-- Floating decorative elements --}}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl animate-float"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-secondary/5 blur-3xl animate-float" style="animation-delay: -2s"></div>
+    </div>
+    {{-- Three.js particles canvas injected here --}}
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div class="max-w-3xl">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6 backdrop-blur-sm border border-white/10" data-aos="fade-up">
                 <i class="fas fa-store text-xs"></i>
                 Tentang Kami
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
-                Kenali Lebih Dekat <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-400">Cahaya Plalar</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="100" data-parallax-speed="0.06">
+                Kenali Lebih Dekat <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-300 animate-gradient">Cahaya Plalar</span>
             </h1>
-            <p class="text-lg sm:text-xl text-white/80 max-w-xl" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-lg sm:text-xl text-white/80 max-w-xl" data-aos="fade-up" data-aos-delay="200" data-parallax-speed="0.04">
                 Toko kebutuhan sehari-hari terpercaya yang siap melayani Anda.
             </p>
         </div>
+
     </div>
 </section>
 
@@ -38,7 +45,7 @@
                     <p>Kepercayaan pelanggan adalah prioritas utama kami. Kami selalu berusaha memberikan pelayanan yang ramah, harga yang bersaing, dan produk yang berkualitas. Kunjungi toko kami dan rasikan pengalaman berbelanja yang menyenangkan.</p>
                 </div>
             </div>
-            <div class="relative" data-aos="fade-left">
+            <div class="relative" data-aos="fade-left" data-parallax-speed="0.15">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                     <img src="{{ asset('img/IMG_20260117_124640.webp') }}" alt="Suasana Toko Cahaya Plalar" class="w-full h-full object-cover">
                 </div>
