@@ -4,7 +4,7 @@
 
 @section('content')
 {{-- Hero Section --}}
-<section id="three-bg-container" class="relative overflow-hidden min-h-[600px] flex items-center">
+<section id="three-bg-container" class="relative overflow-hidden min-h-[450px] sm:min-h-[600px] flex items-center">
     {{-- Background Image --}}
     <div class="absolute inset-0">
         <img src="{{ asset('img/IMG_20260117_124646.webp') }}" alt="Cahaya Plalar" class="w-full h-full object-cover">
@@ -17,7 +17,7 @@
     </div>
     {{-- Three.js particles canvas injected here --}}
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-32">
         <div class="max-w-3xl">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6 backdrop-blur-sm border border-white/10" data-aos="fade-up">
                 <i class="fas fa-store text-xs"></i>
@@ -45,7 +45,7 @@
 </section>
 
 {{-- About Section --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-12 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div data-aos="fade-right">
@@ -55,18 +55,18 @@
                     <p>Cahaya Plalar adalah toko kebutuhan sehari-hari yang berlokasi di Gedongrejo, Kaliwuluh, Kebakkramat, Karanganyar. Kami berkomitmen untuk menyediakan produk-produk berkualitas dengan harga yang terjangkau bagi masyarakat sekitar.</p>
                     <p>Berdiri sejak tahun 2020, kami telah melayani ribuan pelanggan dan terus berkembang untuk memberikan pelayanan terbaik. Kami menyediakan berbagai macam kebutuhan pokok, sembako, perlengkapan rumah tangga, dan banyak lagi.</p>
                 </div>
-                <div class="grid grid-cols-3 gap-6 mt-8">
-                    <div class="text-center p-4 rounded-xl bg-primary/5">
-                        <div class="text-3xl font-bold text-primary" x-data><span x-countup="{ start: 0, end: 500, duration: 2000 }">0</span>+</div>
-                        <div class="text-sm text-gray-500 mt-1">Produk</div>
+                <div class="grid grid-cols-3 gap-3 sm:gap-5 mt-8">
+                    <div class="text-center p-3 sm:p-4 rounded-xl bg-primary/5">
+                        <div class="text-xl sm:text-3xl font-bold text-primary" x-data><span x-countup="{ start: 0, end: 500, duration: 2000 }">0</span>+</div>
+                        <div class="text-xs sm:text-sm text-gray-500 mt-1">Produk</div>
                     </div>
-                    <div class="text-center p-4 rounded-xl bg-secondary/5">
-                        <div class="text-3xl font-bold text-secondary" x-data><span x-countup="{ start: 0, end: 1000, duration: 2500 }">0</span>+</div>
-                        <div class="text-sm text-gray-500 mt-1">Pelanggan</div>
+                    <div class="text-center p-3 sm:p-4 rounded-xl bg-secondary/5">
+                        <div class="text-xl sm:text-3xl font-bold text-secondary" x-data><span x-countup="{ start: 0, end: 1000, duration: 2500 }">0</span>+</div>
+                        <div class="text-xs sm:text-sm text-gray-500 mt-1">Pelanggan</div>
                     </div>
-                    <div class="text-center p-4 rounded-xl bg-accent/5">
-                        <div class="text-3xl font-bold text-accent" x-data><span x-countup="{ start: 0, end: 5, duration: 1500 }">0</span>+</div>
-                        <div class="text-sm text-gray-500 mt-1">Tahun</div>
+                    <div class="text-center p-3 sm:p-4 rounded-xl bg-accent/5">
+                        <div class="text-xl sm:text-3xl font-bold text-accent" x-data><span x-countup="{ start: 0, end: 5, duration: 1500 }">0</span>+</div>
+                        <div class="text-xs sm:text-sm text-gray-500 mt-1">Tahun</div>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
 </section>
 
 {{-- Featured Products Section --}}
-<section id="products-bg-container" class="py-16 lg:py-24 relative overflow-hidden"
+<section id="products-bg-container" class="py-12 lg:py-24 relative overflow-hidden"
     style="background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(6,182,212,0.25) 0%, transparent 60%),
                   radial-gradient(ellipse 70% 60% at 80% 50%, rgba(245,158,11,0.25) 0%, transparent 60%),
                   linear-gradient(180deg, #f0f9ff 0%, #fefce8 50%, #f0fdf4 100%);">
@@ -159,7 +159,7 @@
 </section>
 
 {{-- Categories Section --}}
-<section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+<section class="py-12 lg:py-24 bg-white relative overflow-hidden">
     {{-- Floating product bubbles --}}
     <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/90 backdrop-blur shadow-lg shadow-primary/10 border border-primary/20 flex items-center justify-center animate-float hidden lg:flex">
         <i class="fas fa-box text-2xl text-primary"></i>
@@ -223,7 +223,7 @@
 </section>
 
 {{-- Contact Section --}}
-<section id="kontak" class="py-16 lg:py-24 bg-gray-50">
+<section id="kontak" class="py-12 lg:py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="text-primary font-semibold text-sm tracking-wider uppercase">Hubungi Kami</span>

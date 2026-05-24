@@ -15,7 +15,7 @@
         <div class="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-secondary/5 blur-3xl animate-float" style="animation-delay: -2s"></div>
     </div>
     {{-- Three.js particles canvas injected here --}}
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-32">
         <div class="max-w-3xl">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6 backdrop-blur-sm border border-white/10" data-aos="fade-up">
                 <i class="fas fa-store text-xs"></i>
@@ -33,7 +33,7 @@
 </section>
 
 {{-- About Content --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-12 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div data-aos="fade-right">
@@ -57,7 +57,7 @@
 </section>
 
 {{-- Store Photos --}}
-<section class="py-16 lg:py-24 bg-gray-50">
+<section class="py-12 lg:py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="text-primary font-semibold text-sm tracking-wider uppercase">Galeri</span>
@@ -88,7 +88,7 @@
 </section>
 
 {{-- Location / Google Map --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-12 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="text-primary font-semibold text-sm tracking-wider uppercase">Lokasi</span>
