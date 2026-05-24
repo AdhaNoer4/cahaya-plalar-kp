@@ -84,24 +84,8 @@
                         <a href="https://wa.me/6285293756658" target="_blank" class="text-sm text-green-600 hover:text-green-700 mt-1 block">+62 852-9375-6658</a>
                     </div>
                 </div>
-                <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
-                    <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
-                        <i class="fas fa-phone-alt text-xl text-secondary"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-800">Telepon</h4>
-                        <a href="tel:+6281234567890" class="text-sm text-primary hover:text-primary-dark mt-1 block">+62 812-3456-7890</a>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
-                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                        <i class="fas fa-envelope text-xl text-accent"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-800">Email</h4>
-                        <a href="mailto:info@cahayaplalar.com" class="text-sm text-primary hover:text-primary-dark mt-1 block">info@cahayaplalar.com</a>
-                    </div>
-                </div>
+                
+                
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
                     <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center shrink-0">
                         <i class="fas fa-clock text-xl text-purple-500"></i>
@@ -111,11 +95,6 @@
                         <p class="text-sm text-gray-500 mt-1">Senin - Sabtu: 07.00 - 21.00</p>
                         <p class="text-sm text-gray-500">Minggu: 08.00 - 17.00</p>
                     </div>
-                </div>
-
-                {{-- Map --}}
-                <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 mt-8">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0319696781626!2d110.94914047361927!3d-7.509271809585446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1a32d6ecb01d%3A0xbf7e4f284b3f314a!2sTk%20Cahaya%20Plalar!5e0!3m2!1sid!2sid!4v1779519286719!5m2!1sid!2sid" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
                 </div>
             </div>
         </div>

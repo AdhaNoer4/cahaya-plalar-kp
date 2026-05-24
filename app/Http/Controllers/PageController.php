@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Gallery;
 use App\Models\Product;
 
 class PageController extends Controller
@@ -23,7 +24,11 @@ class PageController extends Controller
 
     public function tentang()
     {
-        return view('tentang');
+        $galleries = Gallery::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        return view('tentang', compact('galleries'));
     }
 
     public function kontak()

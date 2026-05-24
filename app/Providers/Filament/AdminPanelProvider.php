@@ -10,6 +10,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -41,6 +42,14 @@ class AdminPanelProvider extends PanelProvider
                 AccountWidget::class,
                 FilamentInfoWidget::class,
             ])
+            ->renderHook(
+                PanelsRenderHook::SIDEBAR_FOOTER,
+                fn (): string => '<div class="border-t border-gray-200 dark:border-gray-700 px-3 py-3">
+                    <a href="/" class="" style="background-color: black; max-width: 75%; margin: 1rem ; padding: 0.5rem; border-radius: 0.375rem; display: block; justify-content: center; align-items: center; gap: 0.5rem; font-size: 0.875rem; line-height: 1.25rem; color: white; transition: color 0.2s ease-in-out;">
+                       < Kembali ke Website
+                    </a>
+                </div>',
+            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

@@ -64,19 +64,25 @@
             <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mt-2">Foto <span class="text-primary">Toko</span></h2>
             <p class="text-gray-500 mt-3">Suasana toko Cahaya Plalar</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up">
-                <img src="{{ asset('img/IMG_20260117_124646.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @forelse($galleries as $gallery)
+            <div class="group rounded-2xl overflow-hidden shadow-lg bg-white" data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                @if($gallery->description)
+                <div class="p-4">
+                    <p class="text-sm text-gray-600">{{ $gallery->description }}</p>
+                </div>
+                @endif
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                <img src="{{ asset('img/IMG_20260117_124702.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
+            @empty
+            <div class="col-span-full text-center py-16">
+                <i class="fas fa-image text-6xl text-gray-200 mb-4"></i>
+                <p class="text-gray-400">Belum ada galeri foto</p>
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                <img src="{{ asset('img/IMG_20260117_124756.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{ asset('img/IMG_20260117_124640.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500">
-            </div>
+            @endforelse
         </div>
     </div>
 </section>

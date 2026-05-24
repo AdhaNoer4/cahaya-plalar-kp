@@ -45,6 +45,12 @@
                         </form>
                     </div>
 
+                    {{-- Admin Login --}}
+                    <a href="/admin/login" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-primary hover:bg-primary/5 transition-all duration-200">
+                        <i class="fas fa-shield-alt text-xs"></i>
+                        Admin
+                    </a>
+
                     {{-- Search Toggle Mobile --}}
                     <button @click="searchOpen = !searchOpen" class="lg:hidden p-2 rounded-lg text-gray-500 hover:text-primary hover:bg-primary/5 transition-all duration-200">
                         <i class="fas fa-search text-lg"></i>
@@ -75,6 +81,11 @@
                     <a href="{{ route('katalog') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('katalog') ? 'text-primary bg-primary/5' : '' }}">Katalog</a>
                     <a href="{{ route('tentang') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('tentang') ? 'text-primary bg-primary/5' : '' }}">Tentang</a>
                     <a href="{{ route('kontak') }}" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200 {{ request()->routeIs('kontak') ? 'text-primary bg-primary/5' : '' }}">Kontak</a>
+                    <div class="border-t border-gray-100 my-2"></div>
+                    <a href="/admin/login" class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-500 hover:text-primary hover:bg-primary/5 transition-all duration-200">
+                        <i class="fas fa-shield-alt text-xs mr-2"></i>
+                        Admin Dashboard
+                    </a>
                 </div>
             </div>
         </div>
@@ -93,7 +104,7 @@
                 {{-- Tentang Kami --}}
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white font-bold text-base shadow-md">C</div>
+                        
                         <span class="text-lg font-bold text-white">Cahaya <span class="text-primary">Plalar</span></span>
                     </div>
                     <p class="text-sm leading-relaxed text-gray-400">
@@ -126,16 +137,13 @@
                             <span class="text-sm text-gray-400">Gedongrejo RT02/RW14, Kaliwuluh, Kebakkramat, Karanganyar, Jawa Tengah</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-primary"></i>
-                            <a href="tel:+6281234567890" class="text-sm text-gray-400 hover:text-primary transition-all duration-200">+62 812-3456-7890</a>
+                            <i class="fab fa-whatsapp text-primary"></i>
+                            <a href="https://wa.me/6285293756658" class="text-sm text-gray-400 hover:text-primary transition-all duration-200" target="_blank">+62 852-9375-6658</a>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-primary"></i>
-                            <a href="mailto:info@cahayaplalar.com" class="text-sm text-gray-400 hover:text-primary transition-all duration-200">info@cahayaplalar.com</a>
-                        </li>
+                        
                         <li class="flex items-center gap-3">
                             <i class="fas fa-clock text-primary"></i>
-                            <span class="text-sm text-gray-400">Sen - Sab: 07.00 - 21.00</span>
+                            <span class="text-sm text-gray-400">Sen - Min: 07.00 - 20.00</span>
                         </li>
                     </ul>
                 </div>

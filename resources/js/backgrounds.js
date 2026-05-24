@@ -246,15 +246,17 @@ function cleanup() {
   clock = null;
 }
 
+// ── Init ──
+
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("three-bg-container");
-  if (container) init(container);
+  const hero = document.getElementById("three-bg-container");
+  if (hero) init(hero);
 });
 
 const observer = new MutationObserver(() => {
   if (!activeContainer) {
-    const container = document.getElementById("three-bg-container");
-    if (container) init(container);
+    const hero = document.getElementById("three-bg-container");
+    if (hero) init(hero);
   }
 });
 observer.observe(document.body, { childList: true, subtree: true });

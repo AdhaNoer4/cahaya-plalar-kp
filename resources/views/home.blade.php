@@ -82,8 +82,16 @@
 </section>
 
 {{-- Featured Products Section --}}
-<section class="py-16 lg:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="products-bg-container" class="py-16 lg:py-24 relative overflow-hidden"
+    style="background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(6,182,212,0.25) 0%, transparent 60%),
+                  radial-gradient(ellipse 70% 60% at 80% 50%, rgba(245,158,11,0.25) 0%, transparent 60%),
+                  linear-gradient(180deg, #f0f9ff 0%, #fefce8 50%, #f0fdf4 100%);">
+    {{-- Ambient glow orbs --}}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-20 right-1/4 w-80 h-80 rounded-full bg-primary/20 blur-3xl animate-float"></div>
+        <div class="absolute -bottom-20 left-1/4 w-96 h-96 rounded-full bg-secondary/20 blur-3xl animate-float" style="animation-delay: -2.5s"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="text-primary font-semibold text-sm tracking-wider uppercase">Produk Unggulan</span>
             <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mt-2">Produk <span class="text-primary">Pilihan</span> Kami</h2>
@@ -151,7 +159,14 @@
 </section>
 
 {{-- Categories Section --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white relative overflow-hidden">
+    {{-- Floating product bubbles --}}
+    <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/90 backdrop-blur shadow-lg shadow-primary/10 border border-primary/20 flex items-center justify-center animate-float hidden lg:flex">
+        <i class="fas fa-box text-2xl text-primary"></i>
+    </div>
+    <div class="absolute bottom-10 right-12 w-28 h-28 rounded-full bg-white/90 backdrop-blur shadow-lg shadow-secondary/10 border border-secondary/20 flex items-center justify-center animate-float hidden lg:flex" style="animation-delay: -2.5s;">
+        <i class="fas fa-shopping-bag text-3xl text-secondary"></i>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="text-primary font-semibold text-sm tracking-wider uppercase">Kategori</span>
@@ -228,22 +243,14 @@
                         <p class="text-sm text-gray-500 mt-1">Gedongrejo RT02/RW14, Kaliwuluh, Kebakkramat, Karanganyar, Jawa Tengah</p>
                     </div>
                 </div>
-                <div class="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
-                        <i class="fas fa-phone-alt text-xl text-secondary"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-800">Telepon</h4>
-                        <a href="tel:+6281234567890" class="text-sm text-primary hover:text-primary-dark mt-1 block">+62 812-3456-7890</a>
-                    </div>
-                </div>
+               
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                        <i class="fas fa-envelope text-xl text-accent"></i>
+                        <i class="fab fa-whatsapp text-xl text-accent"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-800">Email</h4>
-                        <a href="mailto:info@cahayaplalar.com" class="text-sm text-primary hover:text-primary-dark mt-1 block">info@cahayaplalar.com</a>
+                        <h4 class="font-semibold text-gray-800">WhatsApp</h4>
+                        <a href="https://wa.me/6285293756658" class="text-sm text-primary hover:text-primary-dark mt-1 block" target="_blank">+62 852-9375-6658</a>
                     </div>
                 </div>
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-100">
@@ -252,8 +259,7 @@
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">Jam Operasional</h4>
-                        <p class="text-sm text-gray-500 mt-1">Senin - Sabtu: 07.00 - 21.00</p>
-                        <p class="text-sm text-gray-500">Minggu: 08.00 - 17.00</p>
+                        <p class="text-sm text-gray-500 mt-1">Senin - Minggu: 07.00 - 20.00</p>
                     </div>
                 </div>
             </div>
