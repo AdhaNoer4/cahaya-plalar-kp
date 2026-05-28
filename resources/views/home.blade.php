@@ -3,6 +3,36 @@
 @section('title', 'Cahaya Plalar - Toko Kebutuhan Sehari-hari')
 
 @section('content')
+
+{{-- Promo Banner Slider --}}
+<section x-data="{ 
+        activeSlide: 0, 
+        slides: [
+            { text: 'Promo Minyak Goreng Murah Minggu Ini!', bg: 'bg-gradient-to-r from-red-500 to-rose-600' },
+            { text: 'Diskon Spesial! Sembako Lengkap Harga Merakyat.', bg: 'bg-gradient-to-r from-amber-500 to-orange-600' },
+            { text: 'Produk Terlaris: Beras Premium Promo!', bg: 'bg-gradient-to-r from-teal-500 to-emerald-600' }
+        ]
+    }" 
+    x-init="setInterval(() => activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1, 4000)"
+    class="relative overflow-hidden text-white text-center sm:text-lg font-medium text-sm py-2.5 sm:py-3 shadow-md z-20 transition-all duration-500"
+    :class="slides[activeSlide].bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <template x-for="(slide, index) in slides" :key="index">
+            <div x-show="activeSlide === index"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-x-full"
+                x-transition:enter-end="opacity-100 translate-x-0"
+                x-transition:leave="transition ease-in duration-500 absolute inset-0"
+                x-transition:leave-start="opacity-100 translate-x-0"
+                x-transition:leave-end="opacity-0 -translate-x-full"
+                class="flex items-center justify-center gap-2">
+                <i class="fas fa-bullhorn animate-pulse"></i>
+                <span x-text="slide.text"></span>
+            </div>
+        </template>
+    </div>
+</section>
+
 {{-- Hero Section --}}
 <section id="three-bg-container" class="relative overflow-hidden min-h-[450px] sm:min-h-[600px] flex items-center">
     {{-- Background Image --}}
@@ -135,9 +165,9 @@
                     <p class="text-sm text-gray-500 mt-1 line-clamp-2">{{ $product->deskripsi ?? 'Tidak ada deskripsi' }}</p>
                     <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
                         <span class="text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
-                        <button class="w-9 h-9 rounded-lg bg-primary/5 text-primary hover:bg-primary hover:text-white flex items-center justify-center transition-all duration-200" title="Tambah ke Keranjang">
-                            <i class="fas fa-shopping-cart text-sm"></i>
-                        </button>
+                        <a href="https://wa.me/6285293756658?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-9 h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -154,6 +184,87 @@
                 Lihat Semua Produk
                 <i class="fas fa-arrow-right text-sm"></i>
             </a>
+        </div>
+    </div>
+</section>
+
+{{-- Best Sellers Section --}}
+<section class="py-12 lg:py-24 bg-gray-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4" data-aos="fade-up">
+            <div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-600 text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fas fa-fire"></i> Sedang Hangat
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800">Paling Banyak <span class="text-primary">Dibeli</span></h2>
+                <p class="text-gray-500 mt-2">Produk favorit pilihan warga sekitar yang cepat habis!</p>
+            </div>
+            <a href="{{ route('katalog') }}" class="text-primary font-semibold hover:text-primary-dark inline-flex items-center gap-1 transition-colors">
+                Lihat Semua <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
+        <div x-data="{ isDown: false, startX: 0, scrollLeft: 0 }" class="relative group" data-aos="fade-up" data-aos-delay="100">
+            <button @click="$refs.container.scrollBy({ left: -300, behavior: 'smooth' })"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button @click="$refs.container.scrollBy({ left: 300, behavior: 'smooth' })"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div x-ref="container"
+                @mousedown="isDown = true; startX = $event.pageX - $refs.container.offsetLeft; scrollLeft = $refs.container.scrollLeft; $refs.container.style.cursor = 'grabbing'"
+                @mousemove="if (!isDown) return; $event.preventDefault(); $refs.container.scrollLeft = scrollLeft - ($event.pageX - $refs.container.offsetLeft - startX)"
+                @mouseup="isDown = false; $refs.container.style.cursor = ''"
+                @mouseleave="isDown = false; $refs.container.style.cursor = ''"
+                class="flex gap-6 overflow-x-auto pt-4 pb-6 px-4 cursor-grab select-none no-scrollbar">
+                @forelse($products as $product)
+                <div class="shrink-0 w-[260px] sm:w-[280px] lg:w-[300px] flex flex-col">
+                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
+                            @php
+                                $imageUrl = $product->gambar ? asset('storage/' . $product->gambar) : null;
+                            @endphp
+                            @if($imageUrl)
+                                <img src="{{ $imageUrl }}" alt="{{ $product->nama_produk }}"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <div class="text-center p-4 hidden">
+                                    <i class="fas fa-box-open text-4xl text-gray-300"></i>
+                                </div>
+                            @else
+                                <div class="text-center p-4">
+                                    <i class="fas fa-box-open text-4xl text-gray-300"></i>
+                                </div>
+                            @endif
+                            <div class="absolute top-3 right-3">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-red-500 text-white shadow-sm flex items-center gap-1">
+                                    <i class="fas fa-star text-[10px] text-yellow-300"></i> Terlaris
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-1">
+                            @if($product->category)
+                                <span class="text-xs text-primary font-medium">{{ $product->category->nama_kategori }}</span>
+                            @endif
+                            <h3 class="font-semibold text-gray-800 mt-1 group-hover:text-primary transition-colors duration-200">{{ $product->nama_produk }}</h3>
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                                <span class="text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
+                                <a href="https://wa.me/6285293756658?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-9 h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <div class="w-full text-center py-10">
+                    <p class="text-gray-400">Belum ada produk tersedia</p>
+                </div>
+                @endforelse
+            </div>
         </div>
     </div>
 </section>
@@ -187,7 +298,7 @@
             ];
         @endphp
 
-        <div x-data="{ isDown: false, startX: 0, scrollLeft: 0 }" class="relative">
+        <div x-data="{ isDown: false, startX: 0, scrollLeft: 0 }" class="relative" data-aos="fade-up" data-aos-delay="100">
             <button @click="$refs.container.scrollBy({ left: -250, behavior: 'smooth' })"
                 class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary transition-all duration-200 hidden md:flex">
                 <i class="fas fa-chevron-left text-sm"></i>
@@ -202,9 +313,9 @@
                 @mousemove="if (!isDown) return; $event.preventDefault(); $refs.container.scrollLeft = scrollLeft - ($event.pageX - $refs.container.offsetLeft - startX)"
                 @mouseup="isDown = false; $refs.container.style.cursor = ''"
                 @mouseleave="isDown = false; $refs.container.style.cursor = ''"
-                class="flex gap-4 overflow-x-auto pb-2 cursor-grab select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
+                class="flex gap-4 overflow-x-auto pt-2 pb-4 px-4 cursor-grab select-none no-scrollbar">
                 @forelse($categories as $category)
-                <a href="{{ route('katalog', ['category' => $category->id]) }}" class="group min-w-[140px] p-6 rounded-xl bg-gray-50 hover:bg-primary hover:text-white border border-gray-100 hover:border-primary text-center transition-all duration-300 shrink-0" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
+                <a href="{{ route('katalog', ['category' => $category->id]) }}" class="group min-w-[140px] p-6 rounded-xl bg-gray-50 hover:bg-primary hover:text-white border border-gray-100 hover:border-primary text-center transition-all duration-300 shrink-0">
                     <div class="w-14 h-14 mx-auto rounded-full bg-white shadow-sm group-hover:bg-white/20 flex items-center justify-center mb-3 transition-all duration-300">
                         <i class="fas {{ $categoryIcons[$category->nama_kategori] ?? 'fa-tag' }} text-xl text-primary group-hover:text-white transition-all duration-300"></i>
                     </div>
@@ -217,6 +328,84 @@
                     <p class="text-gray-400 text-lg">Belum ada kategori</p>
                 </div>
                 @endforelse
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Testimonial Section --}}
+<section class="py-12 lg:py-24 bg-primary/5 relative overflow-hidden">
+    <div class="absolute -left-20 top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute -right-20 bottom-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-primary font-semibold text-sm tracking-wider uppercase">Kata Mereka</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mt-2">Ulasan <span class="text-primary">Pelanggan</span></h2>
+            <p class="text-gray-500 mt-3">Dipercaya oleh lebih dari 1000+ warga sekitar untuk memenuhi kebutuhan sehari-hari</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 pt-6">
+            {{-- Testimonial 1 --}}
+            <div class="group bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-primary/20 border border-gray-100 hover:border-primary/30 relative transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
+                <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-quote-right text-white text-lg"></i>
+                </div>
+                
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                
+                <p class="text-gray-700 leading-relaxed font-medium mb-8">"Belanja di Cahaya Plalar paling lengkap di Kaliwuluh, harganya murah dan pelayanannya ramah banget!"</p>
+                
+                <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                    <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">S</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Ibu Siti</h4>
+                        <span class="text-xs text-primary font-medium">Warga Gedongrejo</span>
+                    </div>
+                </div>
+            </div>
+            
+            {{-- Testimonial 2 --}}
+            <div class="group bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-secondary/20 border border-gray-100 hover:border-secondary/30 relative transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-secondary to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-secondary/30 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-quote-right text-white text-lg"></i>
+                </div>
+                
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                
+                <p class="text-gray-700 leading-relaxed font-medium mb-8">"Sangat terbantu ada toko ini. Kalau ada kebutuhan mendadak tinggal WA, respons cepat. Mantap pokoknya!"</p>
+                
+                <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                    <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">B</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Bapak Budi</h4>
+                        <span class="text-xs text-secondary font-medium">Warga Plalar</span>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Testimonial 3 --}}
+            <div class="group bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-accent/20 border border-gray-100 hover:border-accent/30 relative transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-accent to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-accent/30 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-quote-right text-white text-lg"></i>
+                </div>
+                
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                
+                <p class="text-gray-700 leading-relaxed font-medium mb-8">"Barangnya selalu fresh, telur dan beras kualitasnya bagus. Tempatnya juga bersih dan gampang dicari."</p>
+                
+                <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                    <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">A</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Mbak Ani</h4>
+                        <span class="text-xs text-accent font-medium">Pelanggan Setia</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
