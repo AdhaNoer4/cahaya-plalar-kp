@@ -35,4 +35,16 @@ class PageController extends Controller
     {
         return view('kontak');
     }
+
+    public function productDetail(Product $product)
+    {
+        $relatedProducts = Product::with('category')
+            ->where('kategori_id', $product->kategori_id)
+            ->where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
+        return view('product-detail', compact('product', 'relatedProducts'));
+    }
 }

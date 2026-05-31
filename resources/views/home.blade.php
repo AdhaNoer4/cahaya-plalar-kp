@@ -103,7 +103,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @forelse($featuredProducts as $product)
-            <div class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
+            <div onclick="window.location='{{ route('product.show', $product) }}'" class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
                 <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
                     @php
                         $imageUrl = $product->gambar ? asset('storage/' . $product->gambar) : null;
@@ -195,7 +195,7 @@
                 class="flex gap-6 overflow-x-auto pt-4 pb-6 px-4 cursor-grab select-none no-scrollbar">
                 @forelse($products as $product)
                 <div class="shrink-0 w-[260px] sm:w-[280px] lg:w-[300px] flex flex-col">
-                    <div class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                    <div onclick="window.location='{{ route('product.show', $product) }}'" class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col cursor-pointer">
                         <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
                             @php
                                 $imageUrl = $product->gambar ? asset('storage/' . $product->gambar) : null;
