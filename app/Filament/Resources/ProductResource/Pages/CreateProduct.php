@@ -20,6 +20,10 @@ class CreateProduct extends CreateRecord
 
     private function convertToWebp(string $path): string
     {
+        if (pathinfo($path, PATHINFO_EXTENSION) === 'webp') {
+            return $path;
+        }
+
         $fullPath = storage_path('app/public/' . $path);
         if (!file_exists($fullPath)) return $path;
 

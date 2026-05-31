@@ -42,6 +42,8 @@ class GalleryResource extends Resource
                     ->image()
                     ->directory('gallery')
                     ->disk('public')
+                    ->downloadable()
+                    ->openable()
                     ->required(),
                 Textarea::make('description')
                     ->label('Deskripsi')

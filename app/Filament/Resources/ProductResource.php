@@ -52,7 +52,9 @@ class ProductResource extends Resource
                     ->label('Gambar Produk')
                     ->image()
                     ->directory('products')
-                    ->disk('public'),
+                    ->disk('public')
+                    ->downloadable()
+                    ->openable(),
                 Textarea::make('deskripsi')
                     ->label('Deskripsi'),
             ]);
@@ -73,7 +75,8 @@ class ProductResource extends Resource
                 TextColumn::make('stok')
                     ->label('Stok'),
                 ImageColumn::make('gambar')
-                    ->label('Gambar'),
+                    ->label('Gambar')
+                    ->disk('public'),
             ])
             ->filters([
                 //

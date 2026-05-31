@@ -4,34 +4,7 @@
 
 @section('content')
 
-{{-- Promo Banner Slider --}}
-<section x-data="{ 
-        activeSlide: 0, 
-        slides: [
-            { text: 'Promo Minyak Goreng Murah Minggu Ini!', bg: 'bg-gradient-to-r from-red-500 to-rose-600' },
-            { text: 'Diskon Spesial! Sembako Lengkap Harga Merakyat.', bg: 'bg-gradient-to-r from-amber-500 to-orange-600' },
-            { text: 'Produk Terlaris: Beras Premium Promo!', bg: 'bg-gradient-to-r from-teal-500 to-emerald-600' }
-        ]
-    }" 
-    x-init="setInterval(() => activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1, 4000)"
-    class="relative overflow-hidden text-white text-center sm:text-lg font-medium text-sm py-2.5 sm:py-3 shadow-md z-20 transition-all duration-500"
-    :class="slides[activeSlide].bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <template x-for="(slide, index) in slides" :key="index">
-            <div x-show="activeSlide === index"
-                x-transition:enter="transition ease-out duration-500"
-                x-transition:enter-start="opacity-0 translate-x-full"
-                x-transition:enter-end="opacity-100 translate-x-0"
-                x-transition:leave="transition ease-in duration-500 absolute inset-0"
-                x-transition:leave-start="opacity-100 translate-x-0"
-                x-transition:leave-end="opacity-0 -translate-x-full"
-                class="flex items-center justify-center gap-2">
-                <i class="fas fa-bullhorn animate-pulse"></i>
-                <span x-text="slide.text"></span>
-            </div>
-        </template>
-    </div>
-</section>
+
 
 {{-- Hero Section --}}
 <section id="three-bg-container" class="relative overflow-hidden min-h-[450px] sm:min-h-[600px] flex items-center">
@@ -83,7 +56,7 @@
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mt-2 mb-6">Menyediakan Kebutuhan <span class="text-primary">Sehari-hari</span> Anda</h2>
                 <div class="space-y-4 text-gray-600 leading-relaxed">
                     <p>Cahaya Plalar adalah toko kebutuhan sehari-hari yang berlokasi di Gedongrejo, Kaliwuluh, Kebakkramat, Karanganyar. Kami berkomitmen untuk menyediakan produk-produk berkualitas dengan harga yang terjangkau bagi masyarakat sekitar.</p>
-                    <p>Berdiri sejak tahun 2020, kami telah melayani ribuan pelanggan dan terus berkembang untuk memberikan pelayanan terbaik. Kami menyediakan berbagai macam kebutuhan pokok, sembako, perlengkapan rumah tangga, dan banyak lagi.</p>
+                    <p>Berdiri sejak tahun 2009, kami telah melayani ribuan pelanggan dan terus berkembang untuk memberikan pelayanan terbaik. Kami menyediakan berbagai macam kebutuhan pokok, sembako, perlengkapan rumah tangga, dan banyak lagi.</p>
                 </div>
                 <div class="grid grid-cols-3 gap-3 sm:gap-5 mt-8">
                     <div class="text-center p-3 sm:p-4 rounded-xl bg-primary/5">
@@ -95,7 +68,7 @@
                         <div class="text-xs sm:text-sm text-gray-500 mt-1">Pelanggan</div>
                     </div>
                     <div class="text-center p-3 sm:p-4 rounded-xl bg-accent/5">
-                        <div class="text-xl sm:text-3xl font-bold text-accent" x-data><span x-countup="{ start: 0, end: 5, duration: 1500 }">0</span>+</div>
+                        <div class="text-xl sm:text-3xl font-bold text-accent" x-data><span x-countup="{ start: 0, end: 15, duration: 1500 }">0</span>+</div>
                         <div class="text-xs sm:text-sm text-gray-500 mt-1">Tahun</div>
                     </div>
                 </div>

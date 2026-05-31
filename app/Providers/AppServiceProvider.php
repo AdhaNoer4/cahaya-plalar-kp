@@ -19,6 +19,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->app->make('config')->set(
+            'filesystems.disks.public.url',
+            url('/storage')
+        );
     }
 }

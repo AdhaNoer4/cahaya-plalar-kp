@@ -112,8 +112,8 @@
                     </p>
                     <div class="flex gap-3 mt-4">
                         <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-facebook-f text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-instagram text-sm"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-whatsapp text-sm"></i></a>
+                        <a href="https://www.tiktok.com/@mochyfami?is_from_webapp=1&sender_device=pc" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-tiktok text-sm"></i></a>
+                        <a href="https://wa.me/6285293756658" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-whatsapp text-sm"></i></a>
                     </div>
                 </div>
 
