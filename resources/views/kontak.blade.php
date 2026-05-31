@@ -34,12 +34,19 @@
                 <span class="text-primary font-semibold text-sm tracking-wider uppercase">Kirim Pesan</span>
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mt-2 mb-8">Hubungi Kami <span class="text-primary">via WhatsApp</span></h2>
 
-                <form id="contactForm" class="space-y-5">
+                <form action="{{ route('contact.send') }}" method="POST" class="space-y-5">
+                    @csrf
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Nama Lengkap</label>
                         <input type="text" id="name" name="name" required
                             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200"
                             placeholder="Masukkan nama Anda">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200"
+                            placeholder="Masukkan email (opsional)">
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Nomor Telepon</label>
@@ -53,12 +60,22 @@
                             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200 resize-none"
                             placeholder="Tulis pesan Anda..."></textarea>
                     </div>
-                     <button type="submit"
-                            class="w-full py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-xl flex items-center justify-center gap-2">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button type="submit"
+                            class="flex-1 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-xl flex items-center justify-center gap-2">
                             <i class="fas fa-paper-plane text-sm"></i>
-                            Kirim Pesan
+                            Kirim via Email
                         </button>
+                        <a href="https://wa.me/6285293756658" target="_blank"
+                            class="py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-xl flex items-center justify-center gap-2 px-6">
+                            <i class="fab fa-whatsapp text-sm"></i>
+                            WhatsApp
+                        </a>
+                    </div>
                 </form>
+                @if(session('success'))
+                    <script>document.addEventListener('DOMContentLoaded', function() { Swal.fire({ icon: 'success', title: 'Berhasil!', text: '{{ session('success') }}', confirmButtonColor: '#b45309' }); });</script>
+                @endif
             </div>
 
             {{-- Contact Info --}}
@@ -101,20 +118,3 @@
     </div>
 </section>
 @endsection
-
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const phoneInfo = phone ? `\n\nNo. Telepon: ${phone}` : '';
-
-    const text = encodeURIComponent(
-        `Halo Cahaya Plalar, ${message}${phoneInfo}\n\n- ${name}`
-    );
-
-    window.open(`https://wa.me/6285293756658?text=${text}`, '_blank');
-});
-</script>
