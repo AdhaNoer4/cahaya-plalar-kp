@@ -113,7 +113,7 @@
                     <div class="flex gap-3 mt-4">
                         <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-facebook-f text-sm"></i></a>
                         <a href="https://www.tiktok.com/@mochyfami?is_from_webapp=1&sender_device=pc" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-tiktok text-sm"></i></a>
-                        <a href="https://wa.me/6285293756658" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-whatsapp text-sm"></i></a>
+                        <a href="https://wa.me/{{ $siteSettings->whatsapp }}" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"><i class="fab fa-whatsapp text-sm"></i></a>
                     </div>
                 </div>
 
@@ -134,16 +134,19 @@
                     <ul class="space-y-3">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt text-primary mt-1"></i>
-                            <span class="text-sm text-gray-400">Gedongrejo RT02/RW14, Kaliwuluh, Kebakkramat, Karanganyar, Jawa Tengah</span>
+                            <span class="text-sm text-gray-400">{{ $siteSettings->address }}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fab fa-whatsapp text-primary"></i>
-                            <a href="https://wa.me/6285293756658" class="text-sm text-gray-400 hover:text-primary transition-all duration-200" target="_blank">+62 852-9375-6658</a>
+                            <a href="https://wa.me/{{ $siteSettings->whatsapp }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200" target="_blank">{{ $siteSettings->whatsapp_formatted }}</a>
                         </li>
                         
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-clock text-primary"></i>
-                            <span class="text-sm text-gray-400">Sen - Min: 07.00 - 20.00</span>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-clock text-primary mt-1"></i>
+                            <div class="text-sm text-gray-400">
+                                <div>{{ $siteSettings->jam_operasional_weekday }}</div>
+                                <div>{{ $siteSettings->jam_operasional_weekend }}</div>
+                            </div>
                         </li>
                     </ul>
                 </div>

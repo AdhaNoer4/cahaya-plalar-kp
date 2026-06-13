@@ -45,12 +45,12 @@
                     <p>Kepercayaan pelanggan adalah prioritas utama kami. Kami selalu berusaha memberikan pelayanan yang ramah, harga yang bersaing, dan produk yang berkualitas. Kunjungi toko kami dan rasikan pengalaman berbelanja yang menyenangkan.</p>
                 </div>
             </div>
-            <div class="relative" data-aos="fade-left" data-parallax-speed="0.15">
+            <div class="relative overflow-hidden p-4" data-aos="fade-left" data-parallax-speed="0.15">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                     <img src="{{ asset('img/IMG_20260117_124640.webp') }}" alt="Suasana Toko Cahaya Plalar" class="w-full h-full object-cover">
                 </div>
-                <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary/10 rounded-2xl -z-10"></div>
-                <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full -z-10"></div>
+                <div class="absolute -bottom-0 -left-0 w-24 h-24 bg-secondary/10 rounded-2xl -z-10"></div>
+                <div class="absolute -top-0 -right-0 w-20 h-20 bg-primary/10 rounded-full -z-10"></div>
             </div>
         </div>
     </div>
@@ -103,7 +103,7 @@
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">Alamat Lengkap</h4>
-                        <p class="text-sm text-gray-500 mt-1">Gedongrejo RT02/RW14, Kaliwuluh, Kebakkramat, Karanganyar, Jawa Tengah 57762</p>
+                        <p class="text-sm text-gray-500 mt-1">{{ $siteSettings->address }}</p>
                     </div>
                 </div>
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
@@ -112,7 +112,7 @@
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">Whatsapp</h4>
-                        <a href="https://wa.me/6285293756658" target="_blank" class="text-sm text-primary hover:text-primary-dark mt-1 block">+62 852-9375-6658</a>
+                        <a href="https://wa.me/{{ $siteSettings->whatsapp }}" target="_blank" class="text-sm text-primary hover:text-primary-dark mt-1 block">{{ $siteSettings->whatsapp_formatted }}</a>
                     </div>
                 </div>
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
@@ -136,7 +136,7 @@
                 </div>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-aos="fade-left">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0319696781626!2d110.94914047361927!3d-7.509271809585446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1a32d6ecb01d%3A0xbf7e4f284b3f314a!2sTk%20Cahaya%20Plalar!5e0!3m2!1sid!2sid!4v1779519286719!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0319696781626!2d110.94914047361927!3d-7.509271809585446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1a32d6ecb01d%3A0xbf7e4f284b3f314a!2sTk%20Cahaya%20Plalar!5e0!3m2!1sid!2sid!4v1779519286719!5m2!1sid!2sid" class="w-full h-[300px] sm:h-[400px] lg:h-[450px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

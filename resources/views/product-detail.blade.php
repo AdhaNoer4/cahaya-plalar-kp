@@ -74,7 +74,7 @@
 
                 {{-- Actions --}}
                 <div class="mt-auto pt-8 flex flex-col sm:flex-row gap-3">
-                    <a href="https://wa.me/6285293756658?text=Halo%20Cahaya%20Plalar%2C%20saya%20ingin%20membeli%20{{ urlencode($product->nama_produk) }}%20(Rp%20{{ number_format($product->harga, 0, ',', '.') }})%2C%20apakah%20ready%3F"
+                    <a href="https://wa.me/{{ $siteSettings->whatsapp }}?text=Halo%20Cahaya%20Plalar%2C%20saya%20ingin%20membeli%20{{ urlencode($product->nama_produk) }}%20(Rp%20{{ number_format($product->harga, 0, ',', '.') }})%2C%20apakah%20ready%3F"
                         target="_blank"
                         class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-green-500/25">
                         <i class="fab fa-whatsapp text-lg"></i>

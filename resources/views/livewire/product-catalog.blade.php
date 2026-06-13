@@ -16,7 +16,7 @@
     </div>
 
     {{-- Products Grid --}}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
         @forelse($products as $product)
         <div onclick="window.location='{{ route('product.show', $product) }}'" class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
             <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
@@ -43,16 +43,16 @@
                     @endif
                 </div>
             </div>
-            <div class="p-4">
+            <div class="p-2.5 sm:p-4">
                 @if($product->category)
-                    <span class="text-xs text-primary font-medium">{{ $product->category->nama_kategori }}</span>
+                    <span class="text-[10px] sm:text-xs text-primary font-medium">{{ $product->category->nama_kategori }}</span>
                 @endif
-                <h3 class="font-semibold text-gray-800 mt-1 group-hover:text-primary transition-colors duration-200">{{ $product->nama_produk }}</h3>
-                <p class="text-sm text-gray-500 mt-1 line-clamp-2">{{ $product->deskripsi ?? 'Tidak ada deskripsi' }}</p>
-                <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
-                    <span class="text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
-                    <a href="https://wa.me/6285293756658?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-9 h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
-                        <i class="fab fa-whatsapp text-lg"></i>
+                <h3 class="font-semibold text-gray-800 mt-1 group-hover:text-primary transition-colors duration-200 text-xs sm:text-base line-clamp-2">{{ $product->nama_produk }}</h3>
+                <p class="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-2 hidden sm:block">{{ $product->deskripsi ?? 'Tidak ada deskripsi' }}</p>
+                <div class="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-100">
+                    <span class="text-sm sm:text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
+                    <a href="https://wa.me/{{ $siteSettings->whatsapp }}?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
+                        <i class="fab fa-whatsapp text-sm sm:text-lg"></i>
                     </a>
                 </div>
             </div>

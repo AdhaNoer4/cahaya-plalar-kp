@@ -73,12 +73,12 @@
                     </div>
                 </div>
             </div>
-            <div class="relative" data-aos="fade-left" data-parallax-speed="0.15">
+            <div class="relative overflow-hidden p-4" data-aos="fade-left" data-parallax-speed="0.15">
                 <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                     <img src="{{ asset('img/IMG_20260117_124702.webp') }}" alt="Toko Cahaya Plalar" class="w-full h-full object-cover">
                 </div>
-                <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/10 rounded-2xl -z-10"></div>
-                <div class="absolute -top-4 -left-4 w-20 h-20 bg-primary/10 rounded-full -z-10"></div>
+                <div class="absolute -bottom-0 -right-0 w-24 h-24 bg-secondary/10 rounded-2xl -z-10"></div>
+                <div class="absolute -top-0 -left-0 w-20 h-20 bg-primary/10 rounded-full -z-10"></div>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@
             <p class="text-gray-500 mt-3">Berbagai produk berkualitas yang siap memenuhi kebutuhan sehari-hari Anda</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             @forelse($featuredProducts as $product)
             <div onclick="window.location='{{ route('product.show', $product) }}'" class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
                 <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
@@ -130,16 +130,16 @@
                         @endif
                     </div>
                 </div>
-                <div class="p-4">
+                <div class="p-2.5 sm:p-4">
                     @if($product->category)
-                        <span class="text-xs text-primary font-medium">{{ $product->category->nama_kategori }}</span>
+                        <span class="text-[10px] sm:text-xs text-primary font-medium">{{ $product->category->nama_kategori }}</span>
                     @endif
-                    <h3 class="font-semibold text-gray-800 mt-1 group-hover:text-primary transition-colors duration-200">{{ $product->nama_produk }}</h3>
-                    <p class="text-sm text-gray-500 mt-1 line-clamp-2">{{ $product->deskripsi ?? 'Tidak ada deskripsi' }}</p>
-                    <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
-                        <span class="text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
-                        <a href="https://wa.me/6285293756658?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-9 h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
-                            <i class="fab fa-whatsapp text-lg"></i>
+                    <h3 class="font-semibold text-gray-800 mt-1 group-hover:text-primary transition-colors duration-200 text-xs sm:text-base line-clamp-2">{{ $product->nama_produk }}</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-2 hidden sm:block">{{ $product->deskripsi ?? 'Tidak ada deskripsi' }}</p>
+                    <div class="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-100">
+                        <span class="text-sm sm:text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
+                        <a href="https://wa.me/{{ $siteSettings->whatsapp }}?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
+                            <i class="fab fa-whatsapp text-sm sm:text-lg"></i>
                         </a>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                 @mouseup="isDown = false; $refs.container.style.cursor = ''"
                 @mouseleave="isDown = false; $refs.container.style.cursor = ''"
                 class="flex gap-6 overflow-x-auto pt-4 pb-6 px-4 cursor-grab select-none no-scrollbar">
-                @forelse($products as $product)
+                @forelse($bestSellers as $product)
                 <div class="shrink-0 w-[260px] sm:w-[280px] lg:w-[300px] flex flex-col">
                     <div onclick="window.location='{{ route('product.show', $product) }}'" class="group bg-white rounded-xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 h-full flex flex-col cursor-pointer">
                         <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
@@ -225,7 +225,7 @@
                             <h3 class="font-semibold text-gray-800 mt-1 group-hover:text-primary transition-colors duration-200">{{ $product->nama_produk }}</h3>
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                                 <span class="text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
-                                <a href="https://wa.me/6285293756658?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-9 h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
+                                <a href="https://wa.me/{{ $siteSettings->whatsapp }}?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-9 h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
                                     <i class="fab fa-whatsapp text-lg"></i>
                                 </a>
                             </div>
@@ -317,70 +317,110 @@
             <p class="text-gray-500 mt-3">Dipercaya oleh lebih dari 1000+ warga sekitar untuk memenuhi kebutuhan sehari-hari</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 pt-6">
-            {{-- Testimonial 1 --}}
-            <div class="group bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-primary/20 border border-gray-100 hover:border-primary/30 relative transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
-                <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fas fa-quote-right text-white text-lg"></i>
-                </div>
-                
-                <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                
-                <p class="text-gray-700 leading-relaxed font-medium mb-8">"Belanja di Cahaya Plalar paling lengkap di Kaliwuluh, harganya murah dan pelayanannya ramah banget!"</p>
-                
-                <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">S</div>
-                    <div>
-                        <h4 class="font-bold text-gray-900">Ibu Siti</h4>
-                        <span class="text-xs text-primary font-medium">Warga Gedongrejo</span>
-                    </div>
-                </div>
-            </div>
+        @if(count($testimonials) > 0)
+        <div x-data="{ 
+            active: 0, 
+            total: {{ count($testimonials) }},
+            autoplayInterval: null,
+            startAutoplay() {
+                this.autoplayInterval = setInterval(() => {
+                    this.next();
+                }, 6000);
+            },
+            stopAutoplay() {
+                clearInterval(this.autoplayInterval);
+            },
+            next() {
+                this.active = (this.active + 1) % this.total;
+            },
+            prev() {
+                this.active = (this.active - 1 + this.total) % this.total;
+            }
+        }"
+        x-init="startAutoplay()"
+        @mouseenter="stopAutoplay()"
+        @mouseleave="startAutoplay()"
+        class="relative max-w-4xl mx-auto px-4"
+        data-aos="fade-up">
             
-            {{-- Testimonial 2 --}}
-            <div class="group bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-secondary/20 border border-gray-100 hover:border-secondary/30 relative transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
-                <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-secondary to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-secondary/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fas fa-quote-right text-white text-lg"></i>
-                </div>
-                
-                <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                
-                <p class="text-gray-700 leading-relaxed font-medium mb-8">"Sangat terbantu ada toko ini. Kalau ada kebutuhan mendadak tinggal WA, respons cepat. Mantap pokoknya!"</p>
-                
-                <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">B</div>
-                    <div>
-                        <h4 class="font-bold text-gray-900">Bapak Budi</h4>
-                        <span class="text-xs text-secondary font-medium">Warga Plalar</span>
+            <!-- Slides Container -->
+            <div class="relative min-h-[340px] sm:min-h-[280px] md:min-h-[250px] flex items-center">
+                @foreach($testimonials as $index => $testimonial)
+                <div x-show="active === {{ $index }}"
+                     x-transition:enter="transition ease-out duration-500"
+                     x-transition:enter-start="opacity-0 translate-x-8 scale-95"
+                     x-transition:enter-end="opacity-100 translate-x-0 scale-100"
+                     x-transition:leave="transition ease-in duration-300 absolute inset-x-0"
+                     x-transition:leave-start="opacity-100 translate-x-0 scale-100"
+                     x-transition:leave-end="opacity-0 -translate-x-8 scale-95"
+                     class="w-full bg-white p-8 md:p-12 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-primary/30 relative transition-all duration-300">
+                    
+                    <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
+                        <i class="fas fa-quote-right text-white text-lg"></i>
+                    </div>
+                    
+                    <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
+                        @for($i = 1; $i <= 5; $i++)
+                            @if($i <= $testimonial->stars)
+                                <i class="fas fa-star"></i>
+                            @elseif($i - 0.5 <= $testimonial->stars)
+                                <i class="fas fa-star-half-alt"></i>
+                            @else
+                                <i class="far fa-star"></i>
+                            @endif
+                        @endfor
+                    </div>
+                    
+                    <p class="text-gray-700 leading-relaxed font-medium text-lg md:text-xl mb-8">"{{ $testimonial->content }}"</p>
+                    
+                    <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                        @php
+                            $initial = strtoupper(substr($testimonial->name, 0, 1));
+                        @endphp
+                        @if($testimonial->avatar)
+                            <img src="{{ asset('storage/' . $testimonial->avatar) }}" alt="{{ $testimonial->name }}" class="w-12 h-12 rounded-full object-cover ring-4 ring-white shadow-inner">
+                        @else
+                            <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">{{ $initial }}</div>
+                        @endif
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-base md:text-lg">{{ $testimonial->name }}</h4>
+                            @if($testimonial->role)
+                                <span class="text-xs text-primary font-medium">{{ $testimonial->role }}</span>
+                            @endif
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
 
-            {{-- Testimonial 3 --}}
-            <div class="group bg-white p-8 rounded-3xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-accent/20 border border-gray-100 hover:border-accent/30 relative transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
-                <div class="absolute -top-6 right-8 w-12 h-12 bg-gradient-to-br from-accent to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-accent/30 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fas fa-quote-right text-white text-lg"></i>
-                </div>
-                
-                <div class="flex items-center gap-1 text-amber-400 text-sm mb-6">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                </div>
-                
-                <p class="text-gray-700 leading-relaxed font-medium mb-8">"Barangnya selalu fresh, telur dan beras kualitasnya bagus. Tempatnya juga bersih dan gampang dicari."</p>
-                
-                <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
-                    <div class="w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-lg ring-4 ring-white shadow-inner">A</div>
-                    <div>
-                        <h4 class="font-bold text-gray-900">Mbak Ani</h4>
-                        <span class="text-xs text-accent font-medium">Pelanggan Setia</span>
-                    </div>
-                </div>
+            <!-- Navigation Arrows -->
+            @if(count($testimonials) > 1)
+            <div class="absolute top-1/2 -translate-y-1/2 left-0 sm:-left-16 z-10">
+                <button @click="prev()" class="w-10 h-10 sm:w-12 sm:h-12 bg-white text-gray-600 hover:text-primary hover:bg-primary/5 rounded-full shadow-lg border border-gray-100 flex items-center justify-center transition-all duration-200 cursor-pointer focus:outline-none hover:scale-110 active:scale-95">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
             </div>
+            <div class="absolute top-1/2 -translate-y-1/2 right-0 sm:-right-16 z-10">
+                <button @click="next()" class="w-10 h-10 sm:w-12 sm:h-12 bg-white text-gray-600 hover:text-primary hover:bg-primary/5 rounded-full shadow-lg border border-gray-100 flex items-center justify-center transition-all duration-200 cursor-pointer focus:outline-none hover:scale-110 active:scale-95">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Dot Indicators -->
+            <div class="flex justify-center items-center gap-2 mt-8">
+                @foreach($testimonials as $index => $testimonial)
+                <button @click="active = {{ $index }}" 
+                        class="h-2 rounded-full transition-all duration-300 focus:outline-none cursor-pointer"
+                        :class="active === {{ $index }} ? 'w-8 bg-primary' : 'w-2 bg-gray-300 hover:bg-gray-400'"></button>
+                @endforeach
+            </div>
+            @endif
         </div>
+        @else
+        <div class="text-center py-10">
+            <p class="text-gray-400">Belum ada ulasan dari pelanggan.</p>
+        </div>
+        @endif
     </div>
 </section>
 
@@ -401,8 +441,8 @@
                         <i class="fas fa-map-marker-alt text-xl text-primary"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-gray-800">Alamat</h4>
-                        <p class="text-sm text-gray-500 mt-1">Gedongrejo RT02/RW14, Kaliwuluh, Kebakkramat, Karanganyar, Jawa Tengah</p>
+                        <h4 class="font-semibold text-gray-800">Alamat Lengkap</h4>
+                        <p class="text-sm text-gray-500 mt-1">{{ $siteSettings->address }}</p>
                     </div>
                 </div>
                
@@ -412,7 +452,7 @@
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">WhatsApp</h4>
-                        <a href="https://wa.me/6285293756658" class="text-sm text-primary hover:text-primary-dark mt-1 block" target="_blank">+62 852-9375-6658</a>
+                        <a href="https://wa.me/{{ $siteSettings->whatsapp }}" class="text-sm text-primary hover:text-primary-dark mt-1 block" target="_blank">{{ $siteSettings->whatsapp_formatted }}</a>
                     </div>
                 </div>
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-100">
@@ -421,7 +461,8 @@
                     </div>
                     <div>
                         <h4 class="font-semibold text-gray-800">Jam Operasional</h4>
-                        <p class="text-sm text-gray-500 mt-1">Senin - Minggu: 07.00 - 20.00</p>
+                        <p class="text-sm text-gray-500 mt-1">{{ $siteSettings->jam_operasional_weekday }}</p>
+                        <p class="text-sm text-gray-500">{{ $siteSettings->jam_operasional_weekend }}</p>
                     </div>
                 </div>
             </div>

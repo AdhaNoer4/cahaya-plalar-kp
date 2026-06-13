@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\Product;
+use App\Models\BestSeller;
+use App\Models\Testimonial;
 
 class PageController extends Controller
 {
@@ -14,7 +16,19 @@ class PageController extends Controller
         $categories = Category::withCount('products')->get();
         $featuredProducts = Product::with('category')->inRandomOrder()->take(8)->get();
 
-        return view('home', compact('products', 'categories', 'featuredProducts'));
+        $bestSellers = BestSeller::with(['product.category'])
+            ->orderBy('sort_order')
+            ->get()
+            ->map(fn($bs) => $bs->product)
+            ->filter();
+
+        if ($bestSellers->isEmpty()) {
+            $bestSellers = $products;
+        }
+
+        $testimonials = Testimonial::orderBy('sort_order')->get();
+
+        return view('home', compact('products', 'categories', 'featuredProducts', 'bestSellers', 'testimonials'));
     }
 
     public function katalog()
