@@ -9,4 +9,4 @@ Route::get('/katalog', [PageController::class, 'katalog'])->name('katalog');
 Route::get('/tentang', [PageController::class, 'tentang'])->name('tentang');
 Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 Route::get('/product/{product}', [PageController::class, 'productDetail'])->name('product.show');
-Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contact/send', [ContactController::class, 'send'])->middleware('throttle:5,1')->name('contact.send');

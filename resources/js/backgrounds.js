@@ -48,7 +48,7 @@ function init(container) {
 }
 
 function createParticles() {
-  const count = 120;
+  const count = 80;
   const positions = new Float32Array(count * 3);
   const velocities = [];
   const sizes = new Float32Array(count);
@@ -103,9 +103,10 @@ function createParticles() {
       const dx = positions[i * 3] - positions[j * 3];
       const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
       const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-      const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+      const distSq = dx * dx + dy * dy + dz * dz;
 
-      if (dist < 12) {
+      if (distSq < 144) {
+        const dist = Math.sqrt(distSq);
         const alpha = 1 - dist / 12;
         linePositions.push(
           positions[i * 3],
@@ -187,10 +188,11 @@ function animate() {
         const dx = positions[i * 3] - positions[j * 3];
         const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
         const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        const distSq = dx * dx + dy * dy + dz * dz;
 
-        if (dist < 12) {
+        if (distSq < 144) {
           if (idx + 5 >= linePos.length) break;
+          const dist = Math.sqrt(distSq);
           const alpha = 1 - dist / 12;
           linePos[idx] = positions[i * 3];
           linePos[idx + 1] = positions[i * 3 + 1];
@@ -207,6 +209,9 @@ function animate() {
           idx += 6;
         }
       }
+    }
+    for (let k = idx; k < linePos.length; k++) {
+      linePos[k] = 0;
     }
     particles.userData.lines.geometry.attributes.position.needsUpdate = true;
     particles.userData.lines.geometry.attributes.color.needsUpdate = true;
@@ -247,6 +252,9 @@ function cleanup() {
 }
 
 // ── Init ──
+
+const hero = document.getElementById("three-bg-container");
+if (hero) init(hero);
 
 document.addEventListener("DOMContentLoaded", () => {
   const hero = document.getElementById("three-bg-container");

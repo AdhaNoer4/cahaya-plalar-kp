@@ -13,4 +13,11 @@ class Setting extends Model
         'jam_operasional_weekday',
         'jam_operasional_weekend'
     ];
+
+    protected static function booted()
+    {
+        static::saved(function () {
+            \Illuminate\Support\Facades\Cache::forget('site_settings_data');
+        });
+    }
 }

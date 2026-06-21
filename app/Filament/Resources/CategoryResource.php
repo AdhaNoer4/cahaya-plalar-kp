@@ -39,7 +39,8 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama_kategori')
-                    ->label('Nama Kategori'),
+                    ->label('Nama Kategori')
+                    ->searchable(),
             ])
             ->filters([
                 //

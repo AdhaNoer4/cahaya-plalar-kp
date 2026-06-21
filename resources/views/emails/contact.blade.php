@@ -17,6 +17,10 @@
                     <td style="padding: 8px 0;">{{ $data['email'] ?? '-' }}</td>
                 </tr>
                 <tr>
+                    <td style="padding: 8px 0; color: #666; font-size: 13px;">Telepon</td>
+                    <td style="padding: 8px 0;">{{ $data['phone'] ?? '-' }}</td>
+                </tr>
+                <tr>
                     <td style="padding: 8px 0; color: #666; font-size: 13px;">Pesan</td>
                     <td style="padding: 8px 0;">{{ $data['message'] }}</td>
                 </tr>

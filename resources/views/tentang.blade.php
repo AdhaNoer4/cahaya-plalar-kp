@@ -33,7 +33,7 @@
 </section>
 
 {{-- About Content --}}
-<section class="py-12 lg:py-24 bg-white">
+<section class="py-12 lg:py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div data-aos="fade-right">
@@ -88,7 +88,7 @@
 </section>
 
 {{-- Location / Google Map --}}
-<section class="py-12 lg:py-24 bg-white">
+<section class="py-12 lg:py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
             <span class="text-primary font-semibold text-sm tracking-wider uppercase">Lokasi</span>

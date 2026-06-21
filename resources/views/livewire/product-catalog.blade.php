@@ -51,7 +51,7 @@
                 <p class="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-2 hidden sm:block">{{ $product->deskripsi ?? 'Tidak ada deskripsi' }}</p>
                 <div class="flex items-center justify-between mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-100">
                     <span class="text-sm sm:text-lg font-bold text-primary">Rp {{ number_format($product->harga, 0, ',', '.') }}</span>
-                    <a href="https://wa.me/{{ $siteSettings->whatsapp }}?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
+                    <a href="https://wa.me/{{ $siteSettings->whatsapp }}?text=Halo%20Cahaya%20Plalar%2C%20saya%20mau%20pesan%20{{ urlencode($product->nama_produk) }}%2C%20apakah%20ready%3F" target="_blank" onclick="event.stopPropagation()" class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-green-50 text-green-600 hover:bg-green-500 hover:text-white flex items-center justify-center transition-all duration-200" title="Pesan via WA">
                         <i class="fab fa-whatsapp text-sm sm:text-lg"></i>
                     </a>
                 </div>
