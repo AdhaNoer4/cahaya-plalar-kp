@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="font-sans antialiased bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="font-sans antialiased bg-gray-50 text-gray-800">
 
     {{-- Navbar --}}
     <nav x-data="{ mobileOpen: false, searchOpen: false }" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
@@ -92,7 +92,7 @@
     </nav>
 
     {{-- Main Content --}}
-    <main class="overflow-x-hidden">
+    <main>
         @yield('content')
     </main>
 
