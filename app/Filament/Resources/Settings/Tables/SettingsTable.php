@@ -15,6 +15,8 @@ class SettingsTable
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('whatsapp_formatted')
                     ->label('WhatsApp'),
+                \Filament\Tables\Columns\TextColumn::make('email')
+                    ->label('Email'),
                 \Filament\Tables\Columns\TextColumn::make('address')
                     ->label('Alamat')
                     ->limit(50),

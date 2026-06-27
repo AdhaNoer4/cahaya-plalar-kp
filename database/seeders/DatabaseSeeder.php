@@ -60,6 +60,7 @@ class DatabaseSeeder extends Seeder
             \App\Models\Setting::create([
                 'whatsapp' => '6285293756658',
                 'whatsapp_formatted' => '+62 852-9375-6658',
+                'email' => 'cahayaplalar@gmail.com',
                 'address' => 'Gedongrejo RT02/RW14, Kaliwuluh, Kebakkramat, Karanganyar, Jawa Tengah 57762',
                 'jam_operasional_weekday' => 'Senin - Sabtu: 07.00 - 21.00',
                 'jam_operasional_weekend' => 'Minggu: 08.00 - 17.00',

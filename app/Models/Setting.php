@@ -9,6 +9,7 @@ class Setting extends Model
     protected $fillable = [
         'whatsapp',
         'whatsapp_formatted',
+        'email',
         'address',
         'jam_operasional_weekday',
         'jam_operasional_weekend'

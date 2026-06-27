@@ -456,6 +456,15 @@
                     </div>
                 </div>
                 <div class="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                        <i class="fas fa-envelope text-xl text-blue-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800">E-mail</h4>
+                        <a href="mailto:{{ $siteSettings->email }}" class="text-sm text-primary hover:text-primary-dark mt-1 block">{{ $siteSettings->email }}</a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-white shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center shrink-0">
                         <i class="fas fa-clock text-xl text-purple-500"></i>
                     </div>
@@ -495,7 +504,7 @@
                     </div>
                 </form>
                 @if(session('success'))
-                    <script>document.addEventListener('DOMContentLoaded', function() { Swal.fire({ icon: 'success', title: 'Berhasil!', text: '{{ session('success') }}', confirmButtonColor: '#b45309' }); });</script>
+                    <script>document.addEventListener('DOMContentLoaded', function() { Swal.fire({ icon: 'success', title: 'Berhasil!', text: @js(session('success')), confirmButtonColor: '#b45309' }); });</script>
                 @endif
             </div>
         </div>

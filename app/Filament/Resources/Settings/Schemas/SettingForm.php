@@ -17,6 +17,10 @@ class SettingForm
                 \Filament\Forms\Components\TextInput::make('whatsapp_formatted')
                     ->label('Tampilan Nomor WhatsApp (misal: +62 852-9375-6658)')
                     ->required(),
+                \Filament\Forms\Components\TextInput::make('email')
+                    ->label('Email Toko')
+                    ->email()
+                    ->required(),
                 \Filament\Forms\Components\Textarea::make('address')
                     ->label('Alamat Lengkap')
                     ->required()

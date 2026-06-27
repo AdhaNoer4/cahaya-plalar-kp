@@ -140,6 +140,11 @@
                             <i class="fab fa-whatsapp text-primary"></i>
                             <a href="https://wa.me/{{ $siteSettings->whatsapp }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200" target="_blank">{{ $siteSettings->whatsapp_formatted }}</a>
                         </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a href="mailto:{{ $siteSettings->email }}" class="text-sm text-gray-400 hover:text-primary transition-all duration-200">{{ $siteSettings->email }}</a>
+                        </li>
+
                         
                         <li class="flex items-start gap-3">
                             <i class="fas fa-clock text-primary mt-1"></i>
